@@ -1,0 +1,60 @@
+@import "~bootstrap/scss/bootstrap";
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    main {
+        flex-grow: 1;
+
+        #projects .card-img-top {
+            height: 300px;
+            background-color: lightgrey;
+
+            img {
+                height: 300px;
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+
+        #project-details figure {
+            width: 500px;
+            height: 300px;
+            text-align: center;
+            background-color: lightgrey;
+
+            img{
+                width: 500px;
+                height: 300px;
+                object-fit: cover;
+            }
+        }
+
+        .delete-preview{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+
+            height: 40px;
+            width: 40px;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            line-height: 40px;
+
+            font-weight: bold;
+            font-size: 1.5rem;
+
+            border-radius: 50%;
+
+            background-color: rgb(206, 29, 29);
+            color: white;
+
+            cursor: pointer;
+        }
+    }
+}

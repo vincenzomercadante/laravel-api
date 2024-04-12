@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [GuestDashboardController::class, 'index'])
   ->name('home');
 
+
 // # Protected Route
 Route::middleware('auth')
   ->prefix('/admin')

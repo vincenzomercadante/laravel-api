@@ -43,6 +43,7 @@ class ProjectController extends Controller
     public function show($id)
     {
         $project = Project::where('id', $id)->with(['type:id,label,color', 'technologies:id,label,color'])->first();
+        $project->image = $project->image ? asset("/storage/". $project->image) : 'https://placehold.co/600x400' ;
         return response()->json($project);
     }
 

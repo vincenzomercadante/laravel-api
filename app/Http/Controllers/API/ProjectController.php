@@ -17,7 +17,7 @@ class ProjectController extends Controller
     {
         $projects = Project::select('id', 'type_id' ,'title', 'github_reference', 'description', 'image')->with(['type:id,label,color', 'technologies:id,label,color'])->paginate();
         foreach ($projects as $project){
-            $project->image = asset("/storage/". $project->image) ?? 'https://placehold.co/600x400';
+            $project->image = $project->image ? asset("/storage/". $project->image) : 'https://placehold.co/600x400' ;
             $project->description = $project->get_description(60);
         }
         return response()->json($projects);
@@ -43,7 +43,7 @@ class ProjectController extends Controller
     public function show($id)
     {
         $project = Project::where('id', $id)->with(['type:id,label,color', 'technologies:id,label,color'])->first();
-        return response()->json($project)
+        return response()->json($project);
     }
 
     /**
